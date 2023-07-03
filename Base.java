@@ -1,5 +1,8 @@
 package framework;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -91,9 +94,18 @@ public class Base {
 	public String title(WebDriver driver) {
 		return driver.getTitle();
 	}
-	public void changeWindow(int index) {
+	public void changeWindow(int index, WebDriver driver) {
 		ArrayList<String> win=new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(win.get(index));
+	}
+	public void pressTab() {
+		Robot r=null;
+		try {
+			r=new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+		r.keyPress(KeyEvent.VK_TAB);
 	}
 
 
