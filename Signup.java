@@ -58,13 +58,13 @@ public class Signup extends Base {
 		
 	@FindBy(css = "#mat-select-0")
 	WebElement gender;
-	@FindBy(xpath = "//label[.='Gender']")
-	WebElement genderLabel;
+	@FindBy(xpath = "//mat-select[@id='mat-select-0']/div/div/div")
+	WebElement genderSymbol;
 	@FindBy(xpath = "//div[.=' Please select a gender ']")
 	WebElement genderError;
 	@FindBy(xpath = "//span[@class='mat-option-text']")
 	List<WebElement> genderOpt;
-	@FindBy(xpath = "//div[@id='mat-select-value-1']")
+	@FindBy(xpath = "//div[@id='mat-select-value-1']/span/span")
 	WebElement genderSelected;
 	
 	@FindBy(id = "mat-input-0")
@@ -81,8 +81,9 @@ public class Signup extends Base {
 	@FindBy(xpath = "//input[@name='password_confirmation']")
 	WebElement confirmPasswod;
 	
-	@FindBy(xpath = "//input[@id='agreed']")
+	@FindBy(xpath = "//input[@id='agreed']/../label")
 	WebElement checkBox;
+	
 
 	@FindBy(linkText = "Privacy Policy")
 	WebElement privacyLink;
@@ -110,7 +111,7 @@ public class Signup extends Base {
 		waitAndClick(gender);
 		List<WebElement> opt = genderOpt;
 		int count = opt.size();
-		if(opt.isEmpty()) {
+		if(!opt.isEmpty()) {
 			for (int i=0;i<count;i++) {
 				waitAndClick(opt.get(i));
 				if(i<count-1)
@@ -137,12 +138,12 @@ public class Signup extends Base {
 		enter(phone, input);
 	}
 	public String getPrivacyTitle() {
-		changeWindow(1);
+		changeWindow(1,driver);
 		return driver.getTitle();
 	}
 
 	public String getTermsTitle() {
-		changeWindow(1);
+		changeWindow(1,driver);
 		return driver.getTitle();
 	}
 	public void enterPassword(String input) {
