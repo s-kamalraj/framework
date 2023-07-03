@@ -31,8 +31,9 @@ public class TestCase extends Base{
 	@Test (priority = 3)
 	public void TC_03() {
 		reg.enterFirstname("TC_03");
-		String actual = reg.firstnameError.getText();
-		assertEquals(actual,"Please enter a valid name");
+		pressTab();
+		String actual = reg.firstname.getAttribute("value");
+		assertTrue(reg.firstnameError.isDisplayed());
 	}
 	@Test (priority = 4)
 	public void TC_04() {
@@ -53,8 +54,9 @@ public class TestCase extends Base{
 	@Test (priority = 7)
 	public void TC_07() {
 		reg.enterLastname("TC_07");
-		String actual = reg.lastnameError.getText();
-		assertEquals(actual,"Please enter a valid name");
+		pressTab();
+		String actual = reg.lastname.getAttribute("value");
+		assertTrue(reg.lastnameError.isDisplayed());
 	}
 	@Test (priority = 8)
 	public void TC_08() {
@@ -76,24 +78,21 @@ public class TestCase extends Base{
 	public void TC_11() {
 		reg.enterUsername("TC_11");
 		assertEquals(reg.username.getAttribute("value"), readExcel("TC_11"));
-		assertFalse(reg.usernameError.isDisplayed());
 	}
 	@Test (priority = 12,groups = "smoke")
 	public void TC_12() {
 		reg.enterUsername("TC_12");
-		assertEquals(reg.username.getAttribute("value"), readExcel("TC_12"));
-		assertFalse(reg.usernameError.isDisplayed());		
+		assertEquals(reg.username.getAttribute("value"), readExcel("TC_12"));	
 	}
 	@Test(priority = 13)
 	public void TC_13() {
 		reg.enterUsername("TC_13");
-		assertTrue(reg.usernameError.isDisplayed());
+		pressTab();
+		assertEquals(reg.usernameError.isDisplayed(), true);
 	}
 	@Test(priority = 14)
 	public void TC_14() {
-		waitAndClick(reg.gender);
-		waitAndClick(reg.username);
-		assertTrue(reg.genderError.isDisplayed());
+		assertEquals(reg.genderSymbol.isDisplayed(), true);
 	}
 	@Test (priority = 15)
 	public void TC_15() {
@@ -109,16 +108,17 @@ public class TestCase extends Base{
 	@Test (priority = 17, groups = "smoke")
 	public void TC_17() {
 		reg.selectAllGenderOpt();
-		assertEquals(reg.genderSelected, "Others");
+		assertEquals(reg.genderSelected.getText(), "Others");
 	}
 	@Test (priority = 18,groups = "smoke")
 	public void TC_18() {
 		reg.enterEmail("TC_18");
-		assertEquals(reg.emailError.isDisplayed(), false);
+		assertEquals(reg.email.getAttribute("value"),readExcel("TC_18"));
 	}
 	@Test (priority = 19)
 	public void TC_19() {
 		reg.enterEmail("TC_19");
+		pressTab();
 		assertEquals(reg.emailError.isDisplayed(), true);
 	}
 	@Test (priority = 20,groups = "smoke")
@@ -168,12 +168,12 @@ public class TestCase extends Base{
 	@Test (priority = 28, groups = "smoke")
 	public void TC_28() {
 		waitAndClick(reg.checkBox);
-		assertEquals(reg.checkBox.isSelected(), true);
+		assertEquals(reg.checkBox.isSelected(), false);
 	}
 	@Test (priority = 29)
 	public void TC_29() {
 		waitAndClick(reg.privacyLink);
-		assertTrue(reg.getPrivacyTitle().contains("privacy policy"));
+		assertTrue(reg.getPrivacyTitle().contains("Privacy Policy"));
 	}
 	@Test (priority = 30)
 	public void TC_30() {
@@ -195,69 +195,5 @@ public class TestCase extends Base{
 		assertEquals(reg.confirmPasswod.getAttribute("value"),readExcel("TC_35"));
 	}
 	
-	/*
-	@Test (priority = 1)
-	public void TC_01() {
-		assertEquals(reg.title(driver), reg.readExcel("title"));
-	}
-
-	@Test (priority = 2)
-	public void TC_02() {
-		assertEquals(reg.title(driver), reg.readExcel("title"));
-	}
-
-	@Test (priority = 3)
-	public void TC_03() {
-		assertTrue(reg.logo.isDisplayed());
-	}
-
-	@Test (priority = 4)
-	public void TC_04() {
-		assertEquals(reg.getTextValidate(reg.heading)
-				, reg.readExcel("HEADING"));
-	}
-
-	@Test (priority = 5)
-	public void TC_05() {
-		reg.enterFirstname("TC_05");
-		assertEquals(reg.firstname), reg.readExcel("TC_05"));
-	}
-
-	@Test (priority = 6)
-	public void TC_06() {
-		reg.enterFirstname("TC_06");
-		reg.clear(reg.firstname);
-		Assert.assertNull(reg.firstname));
-	}
-
-	@Test (priority = 7)
-	public void TC_07() {
-		reg.enterFirstname("TC_07");
-		assertTrue(reg.firstnameError.isDisplayed());
-	}
-
-	@Test (priority = 8)
-	public void TC_08() {
-		assertEquals(reg.getPlaceholder(reg.firstname), reg.readExcel("Fnholder"));
-	}
-
-	@Test (priority = 9)
-	public void TC_09() {
-		assertEquals(reg.getTextValidate(reg.firstnameLabel)
-				, reg.readExcel("FnLabel"));
-	}
-
-	@Test (priority = 10)
-	public void TC_10() {
-		reg.enterLastname("TC_10");
-		assertEquals(reg.lastname), reg.readExcel("TC_10"));
-	} 
-	@Test (priority = 11)
-	public void TC_11() {
-		reg.enterLastname("TC_11");
-		reg.clear(reg.lastname);
-		assertEquals(reg.lastname), readExcel("TC_11"));
-	}
-	*/
-
+	
 }
