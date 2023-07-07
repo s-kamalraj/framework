@@ -196,7 +196,7 @@ public class Signup extends Base {
 		return gender.getAttribute("placeholder");
 	}
 	public String getEmailPlaceholder() {
-		return firstname.getAttribute("placeholder");
+		return email.getAttribute("placeholder");
 	}
 	public String getOrgPlaceholder() {
 		return org.getAttribute("placeholder");
@@ -210,7 +210,11 @@ public class Signup extends Base {
 	public String getPhonePlaceholder() {
 		return phone.getAttribute("placeholder");
 	}
+	public void selectOrgList(String input){
+		driver.findElement(By.xpath("//li[@title='"+input+"']"))
+		.click();
 	
+	}
 	
 	
 

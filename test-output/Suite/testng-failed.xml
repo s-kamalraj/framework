@@ -3,22 +3,14 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="framework.TestCase">
+      <class name="framework.TS_01">
         <methods>
-          <include name="TC_10"/>
-          <include name="TC_02"/>
-          <include name="TC_08"/>
+          <include name="TC_39"/>
+          <include name="TC_38"/>
           <include name="closeBrowser"/>
-          <include name="TC_09"/>
           <include name="launchBrowser"/>
-          <include name="TC_07"/>
-          <include name="TC_04"/>
-          <include name="TC_05"/>
-          <include name="TC_03"/>
-          <include name="TC_01"/>
-          <include name="TC_06"/>
         </methods>
-      </class> <!-- framework.TestCase -->
+      </class> <!-- framework.TS_01 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

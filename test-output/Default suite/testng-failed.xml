@@ -5,8 +5,8 @@
     <classes>
       <class name="framework.TS_01">
         <methods>
+          <include name="TC_39"/>
           <include name="closeBrowser"/>
-          <include name="TC_36"/>
           <include name="launchBrowser"/>
         </methods>
       </class> <!-- framework.TS_01 -->

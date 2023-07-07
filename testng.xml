@@ -3,9 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="framework.TS_03"/>
-      <class name="framework.TS_02"/>
       <class name="framework.TS_01"/>
+      <class name="framework.TS_02"/>
+      <class name="framework.TS_03"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

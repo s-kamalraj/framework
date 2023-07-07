@@ -50,7 +50,7 @@ public class TS_03 extends Base {
 	@Test (priority = 9)
 	public void TC_09() {
 		assertEquals(reg.genderLabel.isDisplayed(), true);
-		assertEquals(reg.genderLabel.getText(), "User Name");
+		assertEquals(reg.genderLabel.getText(), "Gender");
 	}
 	@Test (priority =11)
 	public void TC_11() {
@@ -75,7 +75,7 @@ public class TS_03 extends Base {
 	}
 	@Test (priority = 16)
 	public void TC_16() {
-		assertNull(reg.getPhonePlaceholder());
+		assertEquals(reg.getPhonePlaceholder(), "");
 	}
 	@Test (priority = 17)
 	public void TC_17() {
@@ -106,6 +106,6 @@ public class TS_03 extends Base {
 	@Test (priority = 22)
 	public void TC_22() {
 		assertEquals(reg.confirmPasswodLabel.isDisplayed(), true);
-		assertEquals(reg.confirmPasswodLabel, "Confirm Password");
+		assertEquals(reg.confirmPasswodLabel.getText(), "Confirm Password");
 	}
 }

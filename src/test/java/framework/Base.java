@@ -45,7 +45,7 @@ public class Base {
 	
 	public String readExcel(String value) {
 
-		File f = new File("./data/TestScenario.xlsx");
+		File f = new File("./TestCase/TestScenario.xlsx");
 		Sheet sheet = null;
 		try {
 			Workbook work = WorkbookFactory.create(f);
